@@ -5,9 +5,9 @@ aux_source_directory(. SRCS_MAIN)
 add_executable(${PROJECT_NAME} ${SRCS_MAIN})
 
 # 链接动态库
-target_link_libraries(${PROJECT_NAME}
-    ${lib_person_name}
+target_link_libraries(${PROJECT_NAME} PRIVATE
     ${lib_util_name}
+    ${lib_compiler_name}
 
     fmt::fmt
     spdlog::spdlog

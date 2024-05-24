@@ -64,7 +64,7 @@
         {
             "label": "run-release",
             "type": "shell",
-            "command": "cd build/ninja-release/dist/bin && ./graver",
+            "command": "cd build/ninja-release/dist/bin && ./graver test.graver",
             "dependsOn": [
                 "build-release"
             ]

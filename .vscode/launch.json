@@ -9,7 +9,9 @@
             "type": "lldb",
             "request": "launch",
             "program": "${workspaceRoot}/build/ninja-debug/dist/bin/graver",
-            "args": [],
+            "args": [
+                "test.graver"
+            ],
             "cwd": "${workspaceFolder}/build/ninja-debug/dist/bin",
             "preLaunchTask": "build-debug"
         },

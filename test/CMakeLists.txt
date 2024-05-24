@@ -65,7 +65,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     fmt::fmt
     spdlog::spdlog
     doctest::doctest
-    ${lib_person_name}
+    ${lib_compiler_name}
     ${lib_util_name}
 )
 

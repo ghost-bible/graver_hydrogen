@@ -8,7 +8,7 @@ configure:
 build:configure
 	cmake --build --preset=linux-release
 run:build
-	cd build/ninja-release/dist/bin && ./graver
+	cd build/ninja-release/dist/bin && ./graver test.graver
 rebuild:clean build
 rerun:rebuild run
 test:build

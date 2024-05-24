@@ -7,7 +7,7 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        "**/build": true,
+        // "**/build": true,
         "**/vcpkg": true,
         "**/vcpkg_installed": true
     },

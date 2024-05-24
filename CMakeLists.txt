@@ -26,16 +26,19 @@ set(dist_dir ${CMAKE_BINARY_DIR}/dist)
 
 # 二进制文件目录
 set(bin_dir ${dist_dir}/bin)
+file(MAKE_DIRECTORY ${bin_dir})
 
 # 库文件目录
 set(lib_dir ${dist_dir}/lib)
+file(MAKE_DIRECTORY ${lib_dir})
 
 # 内部库
-# 示例类库
-set(lib_person_name person)
 
 # 工具类库
 set(lib_util_name util)
+
+# 编译器
+set(lib_compiler_name compiler)
 
 # vcpkg find package ###################################################################################################
 # fmt 库
@@ -61,6 +64,9 @@ endif()
 message(STATUS "spdlog_DIRECTORY:${spdlog_DIRECTORY}")
 
 # 编译相关配置 ###########################################################################################################
+
+# 复制脚本文件
+configure_file(${CMAKE_SOURCE_DIR}/example/test.graver ${bin_dir}/)
 
 # 生成 compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
