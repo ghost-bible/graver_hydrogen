@@ -1,0 +1,52 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 26,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "linux-base",
+            "displayName": "preset base",
+            "description": "通用设置",
+            "cacheVariables": {
+                "CMAKE_GENERATOR": "Ninja",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra",
+                "VCPKG_TARGET_TRIPLET": "x64-linux-dynamic",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+            }
+        },
+        {
+            "name": "linux-release",
+            "displayName": "linux release",
+            "description": "使用 ninja 与 g++ 构建 release 版本",
+            "inherits": "linux-base",
+            "binaryDir": "${sourceDir}/build/ninja-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "linux-debug",
+            "displayName": "linux debug",
+            "description": "使用 ninja 与 g++ 构建 debug 版本",
+            "inherits": "linux-base",
+            "binaryDir": "${sourceDir}/build/ninja-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_DEBUG_POSTFIX": "d"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "linux-release",
+            "configurePreset": "linux-release"
+        },
+        {
+            "name": "linux-debug",
+            "configurePreset": "linux-debug"
+        }
+    ]
+}
