@@ -10,6 +10,10 @@
 #include <string>
 #include <vector>
 
+namespace graver {
+
+namespace util {
+
 class LogUtil {
 public:
     static void init(spdlog::level::level_enum level = spdlog::level::debug, std::string log_file = "app.log");
@@ -23,3 +27,6 @@ private:
     static spdlog::level::level_enum global_level;
     static std::string               log_file;
 };
+
+}  // namespace util
+}  // namespace graver

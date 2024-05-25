@@ -2,6 +2,8 @@
 
 #include "graver/compiler/compiler_helper.h"
 
+using namespace graver::com;
+
 Lexer::Lexer(std::string& text) : m_text(std::move(text)) {}
 
 std::vector<Token> Lexer::lex() {

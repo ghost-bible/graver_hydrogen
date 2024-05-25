@@ -2,6 +2,8 @@
 
 #include <sstream>
 
+using namespace graver::com;
+
 CodeGen::CodeGen(std::vector<Token>& tokens) : m_tokens(tokens) {}
 
 std::string CodeGen::gen() {

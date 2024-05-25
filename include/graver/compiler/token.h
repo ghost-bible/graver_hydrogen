@@ -2,6 +2,9 @@
 
 #include <string>
 
+namespace graver {
+
+namespace com {
 enum class TokenType {
     key_word_exit,
     int_lit,
@@ -33,3 +36,6 @@ struct Token {
     std::string text;
     TokenValue  value = TokenValue();
 };
+
+}  // namespace com
+}  // namespace graver

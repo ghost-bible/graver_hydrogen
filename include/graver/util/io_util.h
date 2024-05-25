@@ -2,6 +2,10 @@
 
 #include <string>
 
+namespace graver {
+
+namespace util {
+
 enum class FileType {
     file,
     dir,
@@ -23,3 +27,6 @@ public:
     static std::string readToLine(const char* filename);
     static void        writeToFile(const std::string& filename, const std::string& content);
 };
+
+}  // namespace util
+}  // namespace graver

@@ -6,6 +6,8 @@
 #include <sstream>
 #include <string>
 
+using namespace graver::util;
+
 FileInfo IoUtil::getFileInfo(const char* filename) {
     FileInfo    info{};
     struct stat fileStat {};

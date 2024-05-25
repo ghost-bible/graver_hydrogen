@@ -8,9 +8,11 @@
 #include "graver/util/io_util.h"
 #include "graver/util/log_util.h"
 
+using namespace graver;
+
 int main(int argc, char** argv) {
-    LogUtil::init(spdlog::level::info, "../logs/app.log");
-    const std::shared_ptr<spdlog::logger> log = LogUtil::getLogger("app");
+    util::LogUtil::init(spdlog::level::info, "../logs/app.log");
+    const std::shared_ptr<spdlog::logger> log = util::LogUtil::getLogger("app");
 
     if (2 != argc) {
         std::cerr << "Incorrect usage. Correct usage is:" << std::endl;
@@ -18,8 +20,8 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    auto content  = IoUtil::readToLine(argv[1]);
-    auto compiler = std::make_unique<Compiler>(argv[1]);
+    auto content  = util::IoUtil::readToLine(argv[1]);
+    auto compiler = std::make_unique<com::Compiler>(argv[1]);
     compiler->compile();
 
     spdlog::shutdown();

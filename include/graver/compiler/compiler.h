@@ -6,6 +6,10 @@
 #include "graver/compiler/code_gen.h"
 #include "graver/compiler/lexer.h"
 
+namespace graver {
+
+namespace com {
+
 struct CompileResult {
     bool        success;
     std::string asmCode;
@@ -27,3 +31,6 @@ private:
     std::shared_ptr<Lexer>   m_lexer;
     std::shared_ptr<CodeGen> m_codeGen;
 };
+
+}  // namespace com
+}  // namespace graver

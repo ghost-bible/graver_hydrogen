@@ -8,6 +8,9 @@
 #include "graver/compiler/lexer.h"
 #include "graver/util/io_util.h"
 
+using namespace graver;
+using namespace graver::com;
+
 Compiler::Compiler(const char* filename) {
     this->m_fileName = filename;
 }
@@ -17,7 +20,7 @@ CompileResult Compiler::compile() {
     ret.success = true;
 
     // 读取源文件内容
-    this->m_fileContent = IoUtil::readToLine(this->m_fileName.c_str());
+    this->m_fileContent = util::IoUtil::readToLine(this->m_fileName.c_str());
 
     // 词法分析
     this->m_lexer = std::make_shared<Lexer>(this->m_fileContent);
@@ -41,7 +44,7 @@ CompileResult Compiler::compile() {
 
     // 生成汇编源文件
     // TODO 汇编源文件名
-    IoUtil::writeToFile("./test.asm", ret.asmCode);
+    util::IoUtil::writeToFile("./test.asm", ret.asmCode);
 
     return ret;
 }

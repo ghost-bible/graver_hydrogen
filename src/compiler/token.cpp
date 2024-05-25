@@ -2,6 +2,8 @@
 
 #include <string>
 
+using namespace graver::com;
+
 TokenValue::TokenValue() {
     m_valueType = ValueType::invalid;
 }

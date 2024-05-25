@@ -3,10 +3,12 @@
 #include "doctest/doctest.h"
 #include "graver/util/log_util.h"
 
-int main(int argc, char** argv) {
-    LogUtil::init(spdlog::level::info, "test.log");
+using namespace graver;
 
-    std::shared_ptr<spdlog::logger> log = LogUtil::getLogger("test");
+int main(int argc, char** argv) {
+    util::LogUtil::init(spdlog::level::info, "test.log");
+
+    std::shared_ptr<spdlog::logger> log = util::LogUtil::getLogger("test");
     SPDLOG_LOGGER_INFO(log, "graver test start...");
 
     doctest::Context context;

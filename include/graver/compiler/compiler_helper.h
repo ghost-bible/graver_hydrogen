@@ -5,6 +5,10 @@
 
 #include "graver/compiler/token.h"
 
+namespace graver {
+
+namespace com {
+
 class CompilerHelper {
 public:
     CompilerHelper()  = default;
@@ -17,3 +21,6 @@ private:
     static std::map<TokenType, std::string> m_token_type_string_map;
     static std::map<std::string, TokenType> m_key_word_token_type_map;
 };
+
+}  // namespace com
+}  // namespace graver

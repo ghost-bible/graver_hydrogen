@@ -4,6 +4,11 @@
 #include <vector>
 
 #include "graver/compiler/token.h"
+
+namespace graver {
+
+namespace com {
+
 class CodeGen {
 public:
     CodeGen() = default;
@@ -16,3 +21,6 @@ public:
 private:
     std::vector<Token> m_tokens;
 };
+
+}  // namespace com
+}  // namespace graver

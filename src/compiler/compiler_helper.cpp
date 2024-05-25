@@ -6,6 +6,8 @@
 
 #include "graver/compiler/token.h"
 
+using namespace graver::com;
+
 std::map<TokenType, std::string> CompilerHelper::m_token_type_string_map = {  // NOLINT
     {TokenType::key_word_exit, "key_word_exit"},
     {TokenType::semi, "semi"},

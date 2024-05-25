@@ -1,5 +1,7 @@
 #include "graver/util/log_util.h"
 
+using namespace graver::util;
+
 spdlog::level::level_enum LogUtil::global_level = spdlog::level::info;
 std::string               LogUtil::log_file     = "app.log";  // NOLINT
 
