@@ -6,6 +6,7 @@
 #include "graver/compiler/code_gen.h"
 #include "graver/compiler/compiler_helper.h"
 #include "graver/compiler/lexer.h"
+#include "graver/compiler/parser.h"
 #include "graver/util/io_util.h"
 
 using namespace graver;
@@ -33,8 +34,16 @@ CompileResult Compiler::compile() {
     }
 #endif
 
+    // 语法分析
+    this->m_parser = std::make_shared<Parser>(tokens);
+    auto nodeRoot  = this->m_parser->parse();
+
+#ifdef GRAVER_DEBUG
+    // TODO 打印语法树
+#endif
+
     // 代码生成
-    this->m_codeGen = std::make_shared<CodeGen>(tokens);
+    this->m_codeGen = std::make_shared<CodeGen>(nodeRoot);
     ret.asmCode     = this->m_codeGen->gen();
 
 #ifdef GRAVER_DEBUG

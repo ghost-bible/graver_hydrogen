@@ -9,6 +9,7 @@ enum class TokenType {
     key_word_exit,
     int_lit,
     semi,
+    eof,
     unknown
 };
 
@@ -32,7 +33,7 @@ private:
 };
 
 struct Token {
-    TokenType   type;
+    TokenType   type = TokenType::eof;
     std::string text;
     TokenValue  value = TokenValue();
 };

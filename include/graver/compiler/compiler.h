@@ -5,6 +5,7 @@
 
 #include "graver/compiler/code_gen.h"
 #include "graver/compiler/lexer.h"
+#include "graver/compiler/parser.h"
 
 namespace graver {
 
@@ -29,6 +30,7 @@ private:
     std::string m_fileName;
 
     std::shared_ptr<Lexer>   m_lexer;
+    std::shared_ptr<Parser>  m_parser;
     std::shared_ptr<CodeGen> m_codeGen;
 };
 

@@ -10,3 +10,15 @@ NASM汇编教程翻译: [https://blog.csdn.net/dlc0313/category_11865513.html](h
 nasm -felf64 test.asm
 ld test.o -o test
 ```
+
+# EBNF
+
+$$
+\begin{align}
+    [\text{exit}] &\to exit([\text{expr}]);
+    \\
+    [\text{expr}] &\to \text{int\_lit}
+\end{align}
+$$
+
+

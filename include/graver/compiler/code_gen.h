@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "graver/compiler/token.h"
+#include "graver/compiler/parser.h"
 
 namespace graver {
 
@@ -12,14 +12,14 @@ namespace com {
 class CodeGen {
 public:
     CodeGen() = default;
-    explicit CodeGen(std::vector<Token>& tokens);
+    explicit CodeGen(NodeExit root);
     ~CodeGen() = default;
 
 public:
-    std::string gen();
+    std::string gen() const;
 
 private:
-    std::vector<Token> m_tokens;
+    NodeExit m_root;
 };
 
 }  // namespace com

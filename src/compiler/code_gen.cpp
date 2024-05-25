@@ -4,25 +4,16 @@
 
 using namespace graver::com;
 
-CodeGen::CodeGen(std::vector<Token>& tokens) : m_tokens(tokens) {}
+CodeGen::CodeGen(NodeExit root) : m_root(std::move(root)) {}
 
-std::string CodeGen::gen() {
+std::string CodeGen::gen() const {
     std::stringstream buff;
     buff << "global _start\n";
     buff << "_start:\n";
 
-    for (std::vector<Token>::size_type i = 0; i < m_tokens.size(); i++) {
-        const Token& token = m_tokens.at(i);
-        if (TokenType::key_word_exit == token.type) {
-            if (i + 1 < m_tokens.size() && TokenType::int_lit == m_tokens.at(i + 1).type) {
-                if (i + 2 < m_tokens.size() && TokenType::semi == m_tokens.at(i + 2).type) {
-                    buff << "    mov rax, 60\n";
-                    buff << "    mov rdi, " << m_tokens.at(i + 1).text << "\n";
-                    buff << "    syscall\n";
-                }
-            }
-        }
-    }
+    buff << "    mov rax, 60\n";
+    buff << "    mov rdi, " << m_root.expre.int_lint.text << "\n";
+    buff << "    syscall\n";
 
     return buff.str();
 }
