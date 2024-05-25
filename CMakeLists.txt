@@ -65,8 +65,12 @@ message(STATUS "spdlog_DIRECTORY:${spdlog_DIRECTORY}")
 
 # 编译相关配置 ###########################################################################################################
 
-# 复制脚本文件
+# 打印调试信息
+add_compile_definitions(GRAVER_DEBUG)
+
+# 复制测试文件
 configure_file(${CMAKE_SOURCE_DIR}/example/test.graver ${bin_dir}/)
+configure_file(${CMAKE_SOURCE_DIR}/example/Makefile ${bin_dir}/)
 
 # 生成 compile_commands.json
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

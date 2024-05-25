@@ -3,7 +3,7 @@
 #include <string>
 
 enum class TokenType {
-    key_word_return,
+    key_word_exit,
     int_lit,
     semi,
     unknown

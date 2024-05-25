@@ -4,14 +4,24 @@
 
 #include <sstream>
 
-std::map<TokenType, std::string> CompilerHelper::m_token_type_map = {  // NOLINT
-    {TokenType::key_word_return, "key_word_return"},
+#include "graver/compiler/token.h"
+
+std::map<TokenType, std::string> CompilerHelper::m_token_type_string_map = {  // NOLINT
+    {TokenType::key_word_exit, "key_word_exit"},
     {TokenType::semi, "semi"},
     {TokenType::int_lit, "int_lit"}};
 
+std::map<std::string, TokenType> CompilerHelper::m_key_word_token_type_map = {  // NOLINT
+    {"exit", TokenType::key_word_exit}};
+
 std::string CompilerHelper::tokenTypeToString(TokenType type) {
-    auto it = m_token_type_map.find(type);
-    return it == m_token_type_map.end() ? "" : it->second;
+    auto it = m_token_type_string_map.find(type);
+    return it == m_token_type_string_map.end() ? "" : it->second;
+}
+
+TokenType CompilerHelper::stringToTokenType(const std::string& keyWord) {
+    auto it = m_key_word_token_type_map.find(keyWord);
+    return it == m_key_word_token_type_map.end() ? TokenType::unknown : it->second;
 }
 
 std::string CompilerHelper::tokenToString(const Token& token) {

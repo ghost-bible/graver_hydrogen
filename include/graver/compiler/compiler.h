@@ -1,24 +1,29 @@
 #pragma once
 
-#include <map>
+#include <memory>
 #include <string>
-#include <vector>
 
-#include "graver/compiler/token.h"
+#include "graver/compiler/code_gen.h"
+#include "graver/compiler/lexer.h"
+
+struct CompileResult {
+    bool        success;
+    std::string asmCode;
+};
 
 class Compiler {
 public:
     Compiler() = default;
     explicit Compiler(const char* filename);
     ~Compiler() = default;
-    std::vector<Token> tokenize();
-    std::string        compileAsm();
+
+public:
+    CompileResult compile();
 
 private:
-    TokenType getKeyWordType(const std::string& text);
+    std::string m_fileContent;
+    std::string m_fileName;
 
-private:
-    std::string                      m_fileContent;
-    std::string                      m_fileName;
-    std::map<std::string, TokenType> m_key_word_map{{"return", TokenType::key_word_return}};
+    std::shared_ptr<Lexer>   m_lexer;
+    std::shared_ptr<CodeGen> m_codeGen;
 };
